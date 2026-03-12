@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let result = [];
+        let sum = 0;
+
+        const isPrimeNumber = (n) => {
+            if (n < 2) return false
+
+            for (let i = 2; i * i <= n; i++) {
+                if (n % i === 0) return false
+            }
+
+            return true
+        }
+
+        while (result.length !== 5) {
+            let n = Number(prompt("정수를 입력하세요"));
+
+            if (n <= 1) continue;
+
+            if (isPrimeNumber(n)) {
+                result.push(n);
+                sum += n
+            }
+
+            if (result.length === 5) {
+                document.writeln(`소수 목록: ${result}<br>`);
+                document.writeln(`합계: ${sum}`);
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- 문제)사용자로부터 정수를 무한히 입력 받아, 소수만 골라내는 프로그램을 작성하세요.
+ <조건>
+  1) 사용자가 음수나 1을 입력하면 무시하고 다음 입력을 받음
+  2) 입력 받은 숫자가 소수가 아니라면 역시 무시하고 다음 입력을 받음
+  3) 입력 받은 숫자가 소수라면 수집 목록에 추가함
+  4) 정확히 5개의 소수가 수집되면, 수집된 5개의 소수 목록과 그 합계를 출력한 뒤 프로그램을 종료 -->

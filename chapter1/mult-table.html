@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num = prompt("몇 단 까지 원하는지 입력해주세요 (예: 1): ")
+        let text = "";
+        for (i = 2; i <= num; i++) {
+            for (j = 1; j <= 9; j++) {
+                text += `<span>${i} X ${j} = ${i * j}</span><br>`
+            }
+            text += `<br>`;
+        }
+        document.write(text);
+    </script>
+</body>
+</html>
