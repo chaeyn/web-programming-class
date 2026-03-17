@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function min (args) {
+            let minValue = 0;
+            for (arg of args) {
+                if (minValue <= arg) minValue = arg;
+            }
+            return minValue;
+        }
+
+        const testArray = [27, 273, 32, 103, 275, 24, 57];
+
+        document.write(`${testArray} 중에서 최솟값은 ${min(testArray)}이다.`)
+    </script>
+</body>
+</html>

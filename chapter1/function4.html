@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="show"></pre>
+    <script>
+        let text = "<table border='0' style='text-align: center; border-collapse: collapse;'>";
+        text += "<tr><th width='60'>섭씨</th><th width='60'>화씨</th></tr>";
+        const degree = [-10, 0, 10, 20, 30];
+        
+        const cel = (degree) => {
+            return degree * 1.8 + 32;
+        }
+
+        for (deg of degree) {
+            text += `<tr><th width='60'>${deg}</th><th width='60'>${cel(deg)}</th></tr>`;
+        }
+
+        document.getElementById("show").innerHTML = text;
+    </script>
+</body>
+</html>
