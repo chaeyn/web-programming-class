@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>0 ~ 9 숫자가 입력되었는지 체크하기</h3>
+    <input id="input1" type="text">
+    <span id="show"></span>
+    <br>
+    <button onclick="checkInput()">확인</button>
+
+    <script>
+        function checkInput() {
+            const input_elem = document.getElementById("input1");
+            let a = input_elem.value;
+
+            try {
+                if (a === "") throw "비어 있습니다.";
+                if (isNaN(a)) throw "숫자가 아닙니다.";
+                a = Number(a);
+                if (a < 0 || a > 9) throw "0 ~ 9 사이 숫자가 아닙니다.";
+
+                document.getElementById("show").innerHTML = "성공: 올바른 숫자입니다.";
+            } catch (err) {
+                document.getElementById("show").innerHTML = "오류: " + err;
+            }
+        }
+    </script>
+</body>
+</html>
