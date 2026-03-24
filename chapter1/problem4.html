@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const character = {
+            name: "이룽지",
+            category: "햄스터",
+            level: 2,
+            hp: 100
+        }
+
+        document.writeln(`이름: ${character.name} <br>`);
+        document.writeln(`레벨: ${character.level} <br>`);
+
+        character.attack = "해바라기씨 대포 발사! <br>"
+
+        document.writeln(`스킬 사용: ${character.attack}`);
+
+        character.hp -= 10;
+        document.writeln(`펫이 적에게 공격당하여 hp가 10 깎였습니다ㅠㅠ <br> 현재 hp: ${character.hp} <br>`);
+        
+        delete character.attack;
+        if (!character.attack) {
+            document.writeln("스킬을 까먹었습니다");
+        }
+    </script>
+</body>
+</html>
