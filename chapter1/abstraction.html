@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    class Student {
+        constructor(이름, 웹프, 자바, 소공, 영어) {
+            this.이름 = 이름
+            this.웹프 = 웹프
+            this.자바 = 자바
+            this.소공 = 소공
+            this.영어 = 영어
+        }
+
+        getSum() {
+            return this.웹프 + this.자바 + this.소공 + this.영어;
+        }
+
+        getAverage() {
+            return this.getSum() / 4;
+        }
+
+        toString() {
+            return `${this.이름}\t\t${this.getSum()}점\t${this.getAverage()}점\n`
+        }
+    }
+
+    const students = [
+        new Student("룽지", 100, 100, 100, 100),
+        new Student("모찌", 92, 98, 96, 88),
+        new Student("감자", 76, 96, 94, 86),
+        new Student("봉식", 98, 52, 98, 92)
+    ];
+
+    let output = `이름\t\t총점\t\t평균\n`
+    for (const s of students) {
+        output += s.toString();
+    }
+
+    console.log(output);
+</script>
+</body>
+</html>
