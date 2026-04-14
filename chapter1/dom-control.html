@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // h1 태그 생성
+            const header = document.createElement('h1');
+            header.textContent = 'createElement로 만든 태그';
+            header.style.color = 'red';
+
+            const body = document.querySelector('body');
+            body.appendChild(header); // header가 body 태그 아래에 붙음
+
+            setTimeout(() => {
+                // 문서 객체 제거
+                header.parentNode.removeChild(header);
+            }, 2000);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

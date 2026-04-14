@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 조작
+            const img = document.querySelector('img');
+
+            // 값 넣는 행위
+            // img.setAttribute('src', "https://loremflickr.com/200/200/hamster");
+
+            // html 표준에 정의된 속성이면 메서드를 사용하지 않고 (.)으로 접근 가능
+            img.src = "https://loremflickr.com/200/200/hamster";
+
+            // 값 추출 행위
+            console.log(img.getAttribute('src'));
+        })
+    </script>
+</head>
+<body>
+    <img src="" alt="">
+</body>
+</html>

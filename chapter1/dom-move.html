@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.createElement('h2');
+            header.textContent = '안녕하세요';
+
+            const first = document.querySelector('.first');
+            const second = document.querySelector('.second');
+
+            first.appendChild(header);
+
+            const toFirst = () => {
+                first.appendChild(header);
+                setTimeout(toSecond, 1000);
+            }
+
+            const toSecond = () => {
+                second.appendChild(header);
+                setTimeout(toFirst, 1000);
+            }
+
+            toFirst();
+        })
+    </script>
+</head>
+<body>
+    <div class='first'>
+        <h1>첫 번째 div 태그 내부</h1>
+    </div>
+    <hr>
+    <div class='second'>
+        <h1>두 번째 div 태그 내부</h1>
+    </div>
+</body>
+</html>
