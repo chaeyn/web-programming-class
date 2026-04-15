@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.querySelector('h1');
+            const print = (event) => {
+                let output = ``;
+
+                // 이벤트 객체에서 특수 키가 눌렸는지 확인
+                output += `alt: ${event.altKey}<br>`;
+                output += `ctrl: ${event.ctrlKey}<br>`;
+                output += `shift: ${event.shiftKey}<br>`;
+
+                // 어떤 키가 눌렸는지 이름 혹은 번호를 가져옴
+                output += `code: ${typeof(event.code) !== "undefined" ? event.code : event.keyCode}<br>`
+                h1.innerHTML = output;
+            }
+
+            document.addEventListener('keydown', print);
+            document.addEventListener('keyup', print);
+        })
+    </script>
+</head>
+<body>
+    <h1>키보드를 눌러보세요!</h1>
+</body>
+</html>

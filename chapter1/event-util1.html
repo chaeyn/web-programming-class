@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let counter = 0;
+            const h1 = document.querySelector('h1');
+
+            h1.addEventListener('click', (event) => {
+                counter++;
+                h1.textContent = `클릭 횟수: ${counter}`;
+            })
+        })
+    </script>
+    <style>
+        h1 {
+            /* 클릭 여러 번 했을 때 글자 선택 막기 */
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>클릭하세요.</h1>
+</body>
+</html>

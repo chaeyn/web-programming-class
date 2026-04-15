@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let counter = 0;
+            let isConnect = false;
+
+            const h1 = document.querySelector('h1');
+            const p = document.querySelector('p');
+            const connectButton = document.querySelector('#connect');
+            const disconnectButton = document.querySelector('#disconnect');
+
+            // 이벤트 발생했을때 실행할 콜백 함수 정의
+            const listener = (event) => {
+                counter++
+                h1.textContent = `클릭 횟수: ${counter}`
+            }
+
+            connectButton.addEventListener('click', () => {
+
+                // 연결되지 않은 상태일때만 실행
+                if (!isConnect) {
+
+                    // h1에 클릭 감지기 부착
+                    h1.addEventListener('click', listener);
+
+                    // 안내 문구 수정
+                    p.textContent = '이벤트 연결 상태: 연결';
+
+                    // 상태 연결됨으로 변경
+                    isConnect = true;
+                }
+            })
+
+            disconnectButton.addEventListener('click', () => {
+                if (isConnect) {
+                    h1.removeEventListener('click', listener);
+                    p.textContent = '이벤트 연결 상태: 해제';
+                    isConnect = false;
+                }
+            })
+        })
+    </script>
+    <style>
+        h1 {
+            /* 클릭 여러 번 했을 때 글자 선택 막기 */
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+<h1>이벤트를 연결하세요.</h1>
+<button id="connect">이벤트 연결</button>
+<button id="disconnect">이벤트 해제</button>
+<p>이벤트 연결 상태: 해제</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.querySelector('h1');
+            const textarea = document.querySelector('textarea');
+
+            // <방법 1> 외부 변수에 직접 접근 / 가장 직관적이지만, 변수 이름이 변경되면 코드를 전부 수정해야 한다
+            textarea.addEventListener('keyup', () => {
+                const length = textarea.value.length;
+                h1.textContent = `글자 수: ${length}`;
+            })
+
+            // <방법 2> event.currentTarget 사용하기 (화살표 함수 사용 가능)
+            // 이벤트가 발생한 그 녀석을 가리킨다. 코드가 독립적이라 재사용에 좋다
+            textarea.addEventListener('keyup', (event) => {
+                const length = event.currentTarget.value.length;
+                h1.textContent = `글자 수: ${length}`;
+            })
+
+            // <방법 3> this 키워드 사용하기 (화살표 함수 사용 불가)
+            // 반드시 function 형태의 일반 함수를 사용해야 함
+            textarea.addEventListener('keyup', function() {
+                const length = this.value.length;
+                h1.textContent = `글자 수: ${length}`;
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>글자 수 : 0</h1>
+    <textarea placeholder="여기에 글자 입력하면 숫자 올라감"></textarea>
+</body>
+</html>
