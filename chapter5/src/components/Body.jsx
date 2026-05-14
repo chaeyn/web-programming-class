@@ -1,43 +1,48 @@
 import { useState } from "react";
 
 function Body({ name, location, breed, children }) {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState("");
-
-  const onIncrease = () => {
-    setCount(count + 1);
-  };
+  const [state, setState] = useState({
+    username: "",
+    gender: "",
+    birth: "",
+    bio: "",
+  });
 
   const handleOnChange = e => {
-    setText(e.target.value);
+    const { name, value } = e.target;
+
+    console.log(`현재 수정 대상: ${name}`);
+    console.log(`수정 값: ${value}`);
+
+    setState({
+      ...state,
+      [name]: value,
+    });
   };
-
-  function handleOnClick(e) {
-    console.log(e.target.name);
-  }
-
-  console.log("리렌더링");
 
   return (
     <div>
-      <button name="A 버튼" onClick={handleOnClick}>
-        A 클릭!
-      </button>
-      <button name="B 버튼" onClick={handleOnClick}>
-        B 클릭!
-      </button>
-      <h2>{count}</h2>
-      <button onClick={onIncrease}>증가</button>
       <div>
-        <input value={text} onChange={handleOnChange} />
-        <div>입력한 글자: {text}</div>
+        <input
+          name="username"
+          value={state.username}
+          onChange={handleOnChange}
+          placeholder="이름"
+        />
       </div>
-      <h2>
-        {name}은 {location}에 살고 있습니다.
-        <br />
-        {breed.length}개의 품종이 있습니다.
-      </h2>
-      {children}
+      <div>
+        <select name="gender" value={state.gender} onChange={handleOnChange}>
+          <option value="" />
+          <option value="남성">남성</option>
+          <option value="여성">여성</option>
+        </select>
+      </div>
+      <div>
+        <input name="birth" type="date" value={state.birth} onChange={handleOnChange} />
+      </div>
+      <div>
+        <textarea name="bio" value={state.bio} onChange={handleOnChange} />
+      </div>
     </div>
   );
 }
